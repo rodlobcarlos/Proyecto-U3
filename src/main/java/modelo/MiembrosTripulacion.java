@@ -66,9 +66,8 @@ public class MiembrosTripulacion {
 				+ añosExperiencia + ", vuelos=" + vuelos + "]";
 	}
 
-	public MiembrosTripulacion(int idTripulacion, String nombre, int añosExperiencia, List<Vuelo> vuelos) {
+	public MiembrosTripulacion(String nombre, int añosExperiencia, List<Vuelo> vuelos) {
 		super();
-		this.idTripulacion = idTripulacion;
 		this.nombre = nombre;
 		this.añosExperiencia = añosExperiencia;
 		this.vuelos = vuelos;

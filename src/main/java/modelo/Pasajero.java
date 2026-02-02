@@ -23,9 +23,9 @@ public class Pasajero {
 	@Column(name = "vuelos_anteriores")
 	private int numVuelos;
 
-	@OneToOne
+	@OneToOne 
 	@JoinColumn(name = "idVuelo")
-	private Vuelo idVuelo;
+	private Vuelo vuelo;
 
 	public int getIdPasajero() {
 		return idPasajero;
@@ -52,24 +52,24 @@ public class Pasajero {
 	}
 
 	public Vuelo getIdVuelo() {
-		return idVuelo;
+		return vuelo;
 	}
 
 	public void setIdVuelo(Vuelo idVuelo) {
-		this.idVuelo = idVuelo;
+		this.vuelo = idVuelo;
 	}
 
 	@Override
 	public String toString() {
 		return "Pasajero [idPasajero=" + idPasajero + ", nombre=" + nombre + ", numVuelos=" + numVuelos + ", idVuelo="
-				+ idVuelo + "]";
+				+ vuelo + "]";
 	}
 
-	public Pasajero(String nombre, int numVuelos, Vuelo idVuelo) {
+	public Pasajero(String nombre, int numVuelos, Vuelo vuelo) {
 		super();
 		this.nombre = nombre;
 		this.numVuelos = numVuelos;
-		this.idVuelo = idVuelo;
+		this.vuelo = vuelo;
 	}
 
 	public Pasajero() {

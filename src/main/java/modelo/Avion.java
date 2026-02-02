@@ -67,9 +67,8 @@ public class Avion {
 				+ ", vuelos=" + vuelos + "]";
 	}
 
-	public Avion(int idAvion, String compañia, LocalDate añoFabricacion, List<Vuelo> vuelos) {
+	public Avion(String compañia, LocalDate añoFabricacion, List<Vuelo> vuelos) {
 		super();
-		this.idAvion = idAvion;
 		this.compañia = compañia;
 		this.añoFabricacion = añoFabricacion;
 		this.vuelos = vuelos;

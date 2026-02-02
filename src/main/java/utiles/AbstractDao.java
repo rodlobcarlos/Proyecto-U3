@@ -38,7 +38,7 @@ public abstract class AbstractDao<T> implements IDao<T> {
 			}
 		}
 
-		return t;
+		return sesion.merge(t);
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public abstract class AbstractDao<T> implements IDao<T> {
 		try {
 			tx = sesion.beginTransaction();
 
-			sesion.persist(objeto);
+			sesion.merge(objeto);
 
 			tx.commit();
 		} catch (RuntimeException e) {

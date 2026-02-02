@@ -5,7 +5,7 @@
 		<property name="hibernate.connection.driver_class">
 			com.mysql.cj.jdbc.Driver </property>
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3307/accesoDatosHibernate?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true
+			jdbc:mysql://localhost:3307/proyecto_U3?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true
 		</property>
 		<property name="hibernate.connection.username">carlos</property>
 		<property name="hibernate.connection.password">clave</property>
@@ -15,11 +15,12 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 		<!-- Entidades -->
-		<mapping class="hibernate_model.Reunion" />
-		<mapping class="hibernate_model.Sala" />
-		<mapping class="hibernate_model.Empleado" />
-		<mapping class="hibernate_model.Departamento" />
-		<mapping class="hibernate_model.Acta" />
+		<mapping class="modelo.Avion" />
+		<mapping class="modelo.MiembrosTripulacion" />
+		<mapping class="modelo.Pasajero" />
+		<mapping class="modelo.Pasaporte" />
+		<mapping class="modelo.Puerta_embarque" />
+		<mapping class="modelo.Vuelo" />
 
 	</session-factory>
 </hibernate-configuration>

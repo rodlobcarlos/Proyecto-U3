@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -34,21 +35,24 @@ public class Vuelo {
 	@OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL)
 	private List<Pasajero> pasajeros;
 
-	@OneToMany(mappedBy = "vuelo", cascade = CascadeType.ALL)
-	private List<MiembrosTripulacion> miembrosTripulacions;
+	@ManyToOne
+	@JoinColumn(name = "idTripulacion")
+	private MiembrosTripulacion miembros_tripulacion;
+
+	@ManyToOne
+	@JoinColumn(name = "idPuerta")
+	private Puerta_embarque puerta_embarque; 
 
 	@OneToOne
-	@JoinColumn(name = "idPuerta")
 	@JoinColumn(name = "idAvion")
-	private Puerta_embarque puertaEmbarque;
 	private Avion avion;
 
-	public List<MiembrosTripulacion> getMiembrosTripulacions() {
-		return miembrosTripulacions;
+	public MiembrosTripulacion getMiembros_tripulacion() {
+		return miembros_tripulacion;
 	}
 
-	public void setMiembrosTripulacions(List<MiembrosTripulacion> miembrosTripulacions) {
-		this.miembrosTripulacions = miembrosTripulacions;
+	public void setMiembros_tripulacion(MiembrosTripulacion miembros_tripulacion) {
+		this.miembros_tripulacion = miembros_tripulacion;
 	}
 
 	public int getIdVuelo() {
@@ -92,11 +96,11 @@ public class Vuelo {
 	}
 
 	public Puerta_embarque getPuertaEmbarque() {
-		return puertaEmbarque;
+		return puerta_embarque;
 	}
 
-	public void setPuertaEmbarque(Puerta_embarque puertaEmbarque) {
-		this.puertaEmbarque = puertaEmbarque;
+	public void setPuertaEmbarque(Puerta_embarque puerta_embarque) {
+		this.puerta_embarque = puerta_embarque;
 	}
 
 	public Avion getAvion() {
@@ -110,20 +114,19 @@ public class Vuelo {
 	@Override
 	public String toString() {
 		return "Vuelo [idVuelo=" + idVuelo + ", destino=" + destino + ", horasVuelo=" + horasVuelo + ", horaSalida="
-				+ horaSalida + ", pasajeros=" + pasajeros + ", miembrosTripulacions=" + miembrosTripulacions
-				+ ", puertaEmbarque=" + puertaEmbarque + ", avion=" + avion + "]";
+				+ horaSalida + ", pasajeros=" + pasajeros + ", miembros_tripulacion=" + miembros_tripulacion
+				+ ", puertaEmbarque=" + puerta_embarque + ", avion=" + avion + "]";
 	}
 
-	public Vuelo(int idVuelo, String destino, int horasVuelo, LocalDateTime horaSalida, List<Pasajero> pasajeros,
-			List<MiembrosTripulacion> miembrosTripulacions, Puerta_embarque puertaEmbarque, Avion avion) {
+	public Vuelo(String destino, int horasVuelo, LocalDateTime horaSalida, List<Pasajero> pasajeros,
+			MiembrosTripulacion miembros_tripulacion, Puerta_embarque puerta_embarque, Avion avion) {
 		super();
-		this.idVuelo = idVuelo;
 		this.destino = destino;
 		this.horasVuelo = horasVuelo;
 		this.horaSalida = horaSalida;
 		this.pasajeros = pasajeros;
-		this.miembrosTripulacions = miembrosTripulacions;
-		this.puertaEmbarque = puertaEmbarque;
+		this.miembros_tripulacion = miembros_tripulacion;
+		this.puerta_embarque = puerta_embarque;
 		this.avion = avion;
 	}
 

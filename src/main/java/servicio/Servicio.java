@@ -24,6 +24,15 @@ public class Servicio {
 	private TripulacionDao tripulacionDao;
 	private VueloDao vueloDao;
 
+	public Servicio() {
+		this.avionDao = new AvionDao();
+		this.embarqueDao = new EmbarqueDao();
+		this.pasajeroDao = new PasajeroDao();
+		this.pasaporteDao = new PasaporteDao();
+		this.tripulacionDao = new TripulacionDao();
+		this.vueloDao = new VueloDao();
+	}
+
 	public void guardar(Pasajero p) {
 		pasajeroDao.create(p);
 	}
